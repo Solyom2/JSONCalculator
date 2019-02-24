@@ -1,0 +1,13 @@
+Feladat:
+maven artifact hu.me object-mapper-interface (maven-archetype-quickstart)
+maven artifact hu.me logika (maven-archetype-quickstart)
+object-mapper-interface fugg a logikatol (dependencies)
+logika-ba
+Szamologep osztaly
+4 alapmuvelet
+json interfesz
+hasznalja a Szamologep osztalyt
+bemenet: ‘{“muvelet”: “osszeadas”, “operandusok”: [3, 4]}’
+kimenet: ‘{“eredmeny”: 7, “uzenet”: “nincs”, “hibakod”: 0}’
+hf: yaml-bol is tudjon mukodni az interfesz
+kell egy console interfesz
