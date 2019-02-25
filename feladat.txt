@@ -11,3 +11,8 @@ bemenet: ‘{“muvelet”: “osszeadas”, “operandusok”: [3, 4]}’
 kimenet: ‘{“eredmeny”: 7, “uzenet”: “nincs”, “hibakod”: 0}’
 hf: yaml-bol is tudjon mukodni az interfesz
 kell egy console interfesz
+
+muvelet: osszeadas
+operandusok:
+  - 3
+  - 4

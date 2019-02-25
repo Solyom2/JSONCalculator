@@ -1,5 +1,7 @@
 package hu.me;
 
+import java.util.Arrays;
+
 public class Bemenet {
 
     private String muvelet;
@@ -21,4 +23,11 @@ public class Bemenet {
         this.operandusok = operandusok;
     }
 
+    @Override
+    public String toString() {
+        return "Bemenet{" +
+                "muvelet='" + muvelet + '\'' +
+                ", operandusok=" + Arrays.toString(operandusok) +
+                '}';
+    }
 }

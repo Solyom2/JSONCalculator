@@ -15,25 +15,12 @@ public class JSONMapper {
         try{
             byte[] jsonData = Files.readAllBytes(Paths.get("bemenet.json"));
             ObjectMapper objectMapper = new ObjectMapper();
-
             Bemenet bemenet = objectMapper.readValue(jsonData, Bemenet.class);
+
             Kimenet kimenet = new Kimenet();
-            Szamologep szamologep = new Szamologep();
             int eredmeny = 0;
-            int[] operandusok = bemenet.getOperandusok();
             try {
-                if(bemenet.getMuvelet().equals("osszeadas")) {
-                    eredmeny = szamologep.osszeadas(operandusok[0], operandusok[1]);
-                }
-                if(bemenet.getMuvelet().equals("kivonas")) {
-                    eredmeny = szamologep.osszeadas(operandusok[0], operandusok[1]);
-                }
-                if(bemenet.getMuvelet().equals("szorzas")) {
-                    eredmeny = szamologep.osszeadas(operandusok[0], operandusok[1]);
-                }
-                if(bemenet.getMuvelet().equals("osztas")) {
-                    eredmeny = szamologep.osszeadas(operandusok[0], operandusok[1]);
-                }
+                eredmeny = calculate(bemenet);
                 kimenet.setEredmeny(eredmeny);
             }catch (Exception e) {
                 kimenet.setHibakod(1);
@@ -85,13 +72,33 @@ public class JSONMapper {
         writeJSON(kimenet);
     }
 
+    public int calculate(Bemenet bemenet) {
+        int eredmeny = 0;
+        int[] operandusok = bemenet.getOperandusok();
+        Szamologep szamologep = new Szamologep();
+
+        if(bemenet.getMuvelet().equals("osszeadas")) {
+            eredmeny = szamologep.osszeadas(operandusok[0], operandusok[1]);
+        }
+        else if(bemenet.getMuvelet().equals("kivonas")) {
+            eredmeny = szamologep.osszeadas(operandusok[0], operandusok[1]);
+        }
+        else if(bemenet.getMuvelet().equals("szorzas")) {
+            eredmeny = szamologep.osszeadas(operandusok[0], operandusok[1]);
+        }
+        else if(bemenet.getMuvelet().equals("osztas")) {
+            eredmeny = szamologep.osszeadas(operandusok[0], operandusok[1]);
+        }
+        return eredmeny;
+    }
+
     public void writeJSON(Kimenet kimenet) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             System.out.println(kimenet.toString());
             objectMapper.writeValue(new File("kimenet.json"), kimenet);
         }catch (IOException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
     }
 
