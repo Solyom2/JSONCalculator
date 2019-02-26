@@ -16,3 +16,16 @@ muvelet: osszeadas
 operandusok:
   - 3
   - 4
+
+group:
+artifact: logika-interface
+v: 0.0.1
+
+kapcsolattarto:
+    keresfeldolgozo Szamologep adattag
+    //import hu.me.logika.Szamologep
+
+struktúra:
+
+szamologep()interface <--- objectmapper
+                      <--- szamologepImplementáció

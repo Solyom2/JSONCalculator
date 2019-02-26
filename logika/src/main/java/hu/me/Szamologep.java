@@ -1,6 +1,6 @@
 package hu.me;
 
-public class Szamologep {
+public class Szamologep{
 
     public Szamologep() {}
 
